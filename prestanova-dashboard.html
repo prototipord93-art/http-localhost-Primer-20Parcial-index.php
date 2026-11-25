@@ -1,0 +1,321 @@
+<div id="prestanova-dashboard-preview" aria-label="Vista previa del panel web de PRESTANOVA">
+  <style>
+    #prestanova-dashboard-preview {
+      color-scheme: light dark;
+      --pn-brand: #10243B;
+      --pn-teal: #20A58A;
+      --pn-page: light-dark(#F3F5F8, #101923);
+      --pn-surface: light-dark(#FFFFFF, #192431);
+      --pn-text: light-dark(#172B40, #E8EEF5);
+      --pn-muted: light-dark(#667789, #A8B5C4);
+      --pn-border: light-dark(#E2E8EE, #2D3947);
+      --pn-soft: light-dark(#EAF6F3, #183B38);
+      --pn-warn: light-dark(#FFF3DF, #47351D);
+      width: 100%;
+      color: var(--pn-text);
+      font: 400 15px/1.45 Inter, ui-sans-serif, system-ui, sans-serif;
+    }
+
+    #prestanova-dashboard-preview * { box-sizing: border-box; }
+    #prestanova-dashboard-preview a { color: inherit; text-decoration: none; }
+
+    #prestanova-dashboard-preview .pn-window {
+      display: grid;
+      grid-template-columns: 232px minmax(0, 1fr);
+      overflow: hidden;
+      width: 100%;
+      background: var(--pn-page);
+      border: 1px solid var(--pn-border);
+      border-radius: 18px;
+    }
+
+    #prestanova-dashboard-preview .pn-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding: 24px 16px;
+      color: #FFFFFF;
+      background: var(--pn-brand);
+    }
+
+    #prestanova-dashboard-preview .pn-brand-lockup,
+    #prestanova-dashboard-preview .pn-company,
+    #prestanova-dashboard-preview .pn-nav a,
+    #prestanova-dashboard-preview .pn-user,
+    #prestanova-dashboard-preview .pn-toolbar,
+    #prestanova-dashboard-preview .pn-toolbar-actions,
+    #prestanova-dashboard-preview .pn-heading-row,
+    #prestanova-dashboard-preview .pn-actions,
+    #prestanova-dashboard-preview .pn-section-heading,
+    #prestanova-dashboard-preview .pn-collection-row,
+    #prestanova-dashboard-preview .pn-activity-title,
+    #prestanova-dashboard-preview .pn-mobile-nav {
+      display: flex;
+      align-items: center;
+    }
+
+    #prestanova-dashboard-preview .pn-brand-lockup { gap: 11px; }
+    #prestanova-dashboard-preview .pn-brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border-radius: 12px;
+      color: #FFFFFF;
+      background: var(--pn-teal);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+    #prestanova-dashboard-preview .pn-brand-name { display: block; font-size: 14px; font-weight: 700; letter-spacing: .07em; }
+    #prestanova-dashboard-preview .pn-brand-caption { display: block; margin-top: 2px; color: #C4D1DE; font-size: 11px; }
+    #prestanova-dashboard-preview .pn-company {
+      justify-content: space-between;
+      gap: 9px;
+      padding: 11px 10px;
+      border: 1px solid rgb(255 255 255 / 16%);
+      border-radius: 11px;
+      background: rgb(255 255 255 / 7%);
+    }
+    #prestanova-dashboard-preview .pn-company small { display: block; color: #BDCAD8; font-size: 11px; }
+    #prestanova-dashboard-preview .pn-company strong { display: block; margin-top: 2px; font-size: 13px; font-weight: 500; }
+    #prestanova-dashboard-preview .pn-nav { display: grid; gap: 5px; }
+    #prestanova-dashboard-preview .pn-nav-label { margin: 0 10px 8px; color: #AFC0CF; font-size: 10px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+    #prestanova-dashboard-preview .pn-nav a { gap: 11px; min-height: 41px; padding: 0 10px; border-radius: 9px; color: #D7E0E8; font-size: 13px; }
+    #prestanova-dashboard-preview .pn-nav a[aria-current="page"] { color: #FFFFFF; background: rgb(255 255 255 / 13%); }
+    #prestanova-dashboard-preview .pn-nav a[aria-current="page"] i { color: #76D2BD; }
+    #prestanova-dashboard-preview .pn-sidebar-footer { margin-top: auto; }
+    #prestanova-dashboard-preview .pn-user { gap: 10px; padding: 12px 4px 0; border-top: 1px solid rgb(255 255 255 / 17%); }
+    #prestanova-dashboard-preview .pn-avatar { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; border-radius: 50%; color: var(--pn-brand); background: #D7E8E5; font-size: 11px; font-weight: 700; }
+    #prestanova-dashboard-preview .pn-user strong { display: block; font-size: 12px; font-weight: 500; }
+    #prestanova-dashboard-preview .pn-user small { display: block; color: #C4D1DE; font-size: 11px; }
+
+    #prestanova-dashboard-preview .pn-main { min-width: 0; padding: 0 28px 26px; }
+    #prestanova-dashboard-preview .pn-toolbar { justify-content: space-between; gap: 16px; min-height: 72px; border-bottom: 1px solid var(--pn-border); }
+    #prestanova-dashboard-preview .pn-search { display: flex; align-items: center; gap: 9px; width: min(310px, 48%); padding: 9px 11px; border: 1px solid var(--pn-border); border-radius: 9px; color: var(--pn-muted); background: var(--pn-surface); font-size: 12px; }
+    #prestanova-dashboard-preview .pn-toolbar-actions { gap: 15px; }
+    #prestanova-dashboard-preview .pn-icon-button { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid var(--pn-border); border-radius: 10px; color: var(--pn-text); background: var(--pn-surface); }
+    #prestanova-dashboard-preview .pn-notification { position: relative; }
+    #prestanova-dashboard-preview .pn-notification::after { position: absolute; top: 7px; right: 7px; width: 7px; height: 7px; border: 1.5px solid var(--pn-surface); border-radius: 50%; background: var(--pn-teal); content: ""; }
+
+    #prestanova-dashboard-preview .pn-content { padding-top: 25px; }
+    #prestanova-dashboard-preview .pn-heading-row { justify-content: space-between; gap: 18px; }
+    #prestanova-dashboard-preview .pn-eyebrow { margin: 0 0 4px; color: var(--pn-muted); font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; }
+    #prestanova-dashboard-preview h1 { margin: 0; color: var(--pn-text); font-size: 25px; font-weight: 500; letter-spacing: -.03em; }
+    #prestanova-dashboard-preview .pn-demo { display: inline-flex; align-items: center; gap: 7px; padding: 6px 9px; border-radius: 7px; color: var(--pn-brand); background: var(--pn-soft); font-size: 10px; font-weight: 500; letter-spacing: .04em; }
+    #prestanova-dashboard-preview .pn-demo-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--pn-teal); }
+    #prestanova-dashboard-preview .pn-subtitle { margin: 6px 0 0; color: var(--pn-muted); font-size: 13px; }
+    #prestanova-dashboard-preview .pn-actions { gap: 9px; margin-top: 17px; }
+    #prestanova-dashboard-preview .pn-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 38px; padding: 0 13px; border: 1px solid var(--pn-border); border-radius: 9px; color: var(--pn-text); background: var(--pn-surface); font-size: 12px; font-weight: 500; }
+    #prestanova-dashboard-preview .pn-button-primary { border-color: var(--pn-brand); color: #FFFFFF; background: var(--pn-brand); }
+
+    #prestanova-dashboard-preview .pn-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; margin-top: 22px; }
+    #prestanova-dashboard-preview .pn-stat { min-width: 0; padding: 16px; border: 1px solid var(--pn-border); border-radius: 12px; background: var(--pn-surface); }
+    #prestanova-dashboard-preview .pn-stat-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: var(--pn-muted); font-size: 12px; }
+    #prestanova-dashboard-preview .pn-stat-icon { display: grid; width: 31px; height: 31px; place-items: center; border-radius: 9px; color: var(--pn-teal); background: var(--pn-soft); }
+    #prestanova-dashboard-preview .pn-stat-value { display: block; margin-top: 12px; color: var(--pn-text); font-size: 22px; font-weight: 500; letter-spacing: -.02em; }
+    #prestanova-dashboard-preview .pn-stat-note { display: block; margin-top: 4px; color: var(--pn-muted); font-size: 11px; }
+    #prestanova-dashboard-preview .pn-stat-note strong { color: var(--pn-teal); font-weight: 500; }
+    #prestanova-dashboard-preview .pn-stat-note .pn-alert { color: #B76D12; }
+
+    #prestanova-dashboard-preview .pn-columns { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(275px, .9fr); gap: 15px; margin-top: 17px; }
+    #prestanova-dashboard-preview .pn-section { min-width: 0; padding: 17px; border: 1px solid var(--pn-border); border-radius: 12px; background: var(--pn-surface); }
+    #prestanova-dashboard-preview .pn-section-heading { justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    #prestanova-dashboard-preview h2 { margin: 0; color: var(--pn-text); font-size: 14px; font-weight: 500; }
+    #prestanova-dashboard-preview .pn-section-heading a { color: var(--pn-teal); font-size: 11px; font-weight: 500; }
+    #prestanova-dashboard-preview .pn-count { color: var(--pn-muted); font-size: 11px; }
+    #prestanova-dashboard-preview .pn-collection-list { display: grid; }
+    #prestanova-dashboard-preview .pn-collection-row { justify-content: space-between; gap: 12px; min-height: 61px; border-top: 1px solid var(--pn-border); }
+    #prestanova-dashboard-preview .pn-collection-person { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    #prestanova-dashboard-preview .pn-person-mark { display: grid; width: 32px; height: 32px; flex: 0 0 auto; place-items: center; border-radius: 10px; color: var(--pn-brand); background: var(--pn-page); font-size: 10px; font-weight: 500; }
+    #prestanova-dashboard-preview .pn-collection-person strong { display: block; overflow: hidden; color: var(--pn-text); font-size: 12px; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
+    #prestanova-dashboard-preview .pn-collection-person small { display: block; margin-top: 2px; color: var(--pn-muted); font-size: 10px; }
+    #prestanova-dashboard-preview .pn-collection-amount { flex: 0 0 auto; text-align: right; }
+    #prestanova-dashboard-preview .pn-collection-amount strong { display: block; color: var(--pn-text); font-size: 12px; font-weight: 500; }
+    #prestanova-dashboard-preview .pn-collection-amount small { color: var(--pn-muted); font-size: 10px; }
+
+    #prestanova-dashboard-preview .pn-activity { margin-top: 15px; }
+    #prestanova-dashboard-preview .pn-activity-title { justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    #prestanova-dashboard-preview .pn-activity-title h2 { margin: 0; }
+    #prestanova-dashboard-preview .pn-table-wrap { overflow-x: auto; }
+    #prestanova-dashboard-preview table { width: 100%; border-collapse: collapse; text-align: left; }
+    #prestanova-dashboard-preview th { padding: 9px 8px; border-bottom: 1px solid var(--pn-border); color: var(--pn-muted); font-size: 10px; font-weight: 500; white-space: nowrap; }
+    #prestanova-dashboard-preview td { padding: 11px 8px; border-bottom: 1px solid var(--pn-border); color: var(--pn-text); font-size: 11px; white-space: nowrap; }
+    #prestanova-dashboard-preview tbody tr:last-child td { border-bottom: 0; }
+    #prestanova-dashboard-preview .pn-receipt { color: var(--pn-muted); }
+    #prestanova-dashboard-preview .pn-status { display: inline-flex; align-items: center; gap: 5px; padding: 4px 7px; border-radius: 6px; color: var(--pn-teal); background: var(--pn-soft); font-size: 10px; }
+    #prestanova-dashboard-preview .pn-mobile-nav { display: none; }
+
+    #prestanova-dashboard-preview i[data-lucide] { width: 16px; height: 16px; }
+    #prestanova-dashboard-preview .pn-stat-icon i[data-lucide] { width: 15px; height: 15px; }
+
+    @media (max-width: 850px) {
+      #prestanova-dashboard-preview .pn-window { grid-template-columns: 190px minmax(0, 1fr); }
+      #prestanova-dashboard-preview .pn-main { padding-right: 20px; padding-left: 20px; }
+      #prestanova-dashboard-preview .pn-columns { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      #prestanova-dashboard-preview .pn-window { display: block; border-radius: 13px; }
+      #prestanova-dashboard-preview .pn-sidebar { display: none; }
+      #prestanova-dashboard-preview .pn-main { padding: 0 15px 12px; }
+      #prestanova-dashboard-preview .pn-toolbar { min-height: 58px; }
+      #prestanova-dashboard-preview .pn-search { width: min(220px, 60%); }
+      #prestanova-dashboard-preview .pn-user-mobile { display: flex; }
+      #prestanova-dashboard-preview .pn-toolbar-actions { gap: 9px; }
+      #prestanova-dashboard-preview .pn-toolbar .pn-avatar { width: 31px; height: 31px; }
+      #prestanova-dashboard-preview .pn-content { padding-top: 19px; }
+      #prestanova-dashboard-preview .pn-heading-row { align-items: flex-start; flex-direction: column; gap: 8px; }
+      #prestanova-dashboard-preview .pn-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin-top: 17px; }
+      #prestanova-dashboard-preview .pn-stat { padding: 13px; }
+      #prestanova-dashboard-preview .pn-stat:last-child { grid-column: 1 / -1; }
+      #prestanova-dashboard-preview .pn-stat-value { font-size: 19px; }
+      #prestanova-dashboard-preview .pn-mobile-nav { display: flex; justify-content: space-around; gap: 5px; padding: 10px 2px 3px; border-top: 1px solid var(--pn-border); }
+      #prestanova-dashboard-preview .pn-mobile-nav a { display: grid; justify-items: center; gap: 3px; min-width: 49px; color: var(--pn-muted); font-size: 9px; }
+      #prestanova-dashboard-preview .pn-mobile-nav a[aria-current="page"] { color: var(--pn-teal); }
+    }
+
+    @media (max-width: 390px) {
+      #prestanova-dashboard-preview .pn-search { width: 40px; justify-content: center; padding: 9px; }
+      #prestanova-dashboard-preview .pn-search span { display: none; }
+      #prestanova-dashboard-preview .pn-demo { font-size: 9px; }
+      #prestanova-dashboard-preview .pn-actions { flex-wrap: wrap; }
+      #prestanova-dashboard-preview .pn-button { flex: 1 1 auto; }
+      #prestanova-dashboard-preview .pn-collection-person strong { max-width: 115px; }
+    }
+  </style>
+
+  <div class="pn-window">
+    <aside class="pn-sidebar" aria-label="Navegación principal">
+      <div class="pn-brand-lockup">
+        <span class="pn-brand-mark" aria-hidden="true">PN</span>
+        <span><span class="pn-brand-name">PRESTANOVA</span><span class="pn-brand-caption">Tu negocio, bajo tu control</span></span>
+      </div>
+
+      <div class="pn-company" aria-label="Empresa activa de demostración">
+        <span><small>Espacio de trabajo</small><strong>Tu empresa</strong></span>
+        <i data-lucide="chevrons-up-down" aria-hidden="true"></i>
+      </div>
+
+      <nav class="pn-nav" aria-label="Secciones">
+        <p class="pn-nav-label">Principal</p>
+        <a href="#resumen" aria-current="page"><i data-lucide="layout-dashboard" aria-hidden="true"></i>Resumen</a>
+        <a href="#clientes"><i data-lucide="users-round" aria-hidden="true"></i>Clientes</a>
+        <a href="#prestamos"><i data-lucide="hand-coins" aria-hidden="true"></i>Préstamos</a>
+        <a href="#cobros"><i data-lucide="calendar-check" aria-hidden="true"></i>Cobros</a>
+        <a href="#caja"><i data-lucide="wallet" aria-hidden="true"></i>Caja</a>
+        <a href="#reportes"><i data-lucide="chart-no-axes-column-increasing" aria-hidden="true"></i>Reportes</a>
+      </nav>
+
+      <nav class="pn-nav" aria-label="Administración">
+        <p class="pn-nav-label">Administración</p>
+        <a href="#usuarios"><i data-lucide="user-round-cog" aria-hidden="true"></i>Usuarios</a>
+        <a href="#configuracion"><i data-lucide="settings-2" aria-hidden="true"></i>Configuración</a>
+      </nav>
+
+      <div class="pn-sidebar-footer">
+        <div class="pn-user">
+          <span class="pn-avatar" aria-hidden="true">AD</span>
+          <span><strong>Administrador</strong><small>Cuenta de demostración</small></span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="pn-main" id="resumen">
+      <div class="pn-toolbar">
+        <div class="pn-search" aria-label="Búsqueda de demostración"><i data-lucide="search" aria-hidden="true"></i><span>Buscar clientes o préstamos</span></div>
+        <div class="pn-toolbar-actions">
+          <span class="pn-demo"><span class="pn-demo-dot" aria-hidden="true"></span>VISTA DEMO · DATOS FICTICIOS</span>
+          <button class="pn-icon-button pn-notification" type="button" aria-label="Notificaciones de ejemplo"><i data-lucide="bell" aria-hidden="true"></i></button>
+          <span class="pn-avatar" aria-label="Perfil de demostración">AD</span>
+        </div>
+      </div>
+
+      <div class="pn-content">
+        <div class="pn-heading-row">
+          <div>
+            <p class="pn-eyebrow">Panel de empresa</p>
+            <h1>Resumen</h1>
+            <p class="pn-subtitle">Aquí puedes revisar la actividad de tu cartera.</p>
+          </div>
+          <span class="pn-demo"><span class="pn-demo-dot" aria-hidden="true"></span>Datos de ejemplo</span>
+        </div>
+
+        <div class="pn-actions" aria-label="Acciones principales">
+          <a class="pn-button pn-button-primary" href="#registrar-cobro"><i data-lucide="plus" aria-hidden="true"></i>Registrar cobro</a>
+          <a class="pn-button" href="#simular-prestamo"><i data-lucide="calculator" aria-hidden="true"></i>Simular préstamo</a>
+        </div>
+
+        <section class="pn-stats" aria-label="Indicadores ficticios">
+          <article class="pn-stat">
+            <div class="pn-stat-top"><span>Cartera activa</span><span class="pn-stat-icon"><i data-lucide="wallet" aria-hidden="true"></i></span></div>
+            <strong class="pn-stat-value">DOP 482,500</strong>
+            <span class="pn-stat-note">Saldo pendiente de ejemplo</span>
+          </article>
+          <article class="pn-stat">
+            <div class="pn-stat-top"><span>Cobrado hoy</span><span class="pn-stat-icon"><i data-lucide="circle-check" aria-hidden="true"></i></span></div>
+            <strong class="pn-stat-value">DOP 26,400</strong>
+            <span class="pn-stat-note"><strong>8 pagos</strong> ficticios registrados</span>
+          </article>
+          <article class="pn-stat">
+            <div class="pn-stat-top"><span>Cuotas vencidas</span><span class="pn-stat-icon"><i data-lucide="clock-3" aria-hidden="true"></i></span></div>
+            <strong class="pn-stat-value">12</strong>
+            <span class="pn-stat-note"><span class="pn-alert">Requieren seguimiento</span></span>
+          </article>
+        </section>
+
+        <div class="pn-columns">
+          <section class="pn-section" aria-labelledby="pn-collections-heading">
+            <div class="pn-section-heading">
+              <h2 id="pn-collections-heading">Cobros de hoy</h2>
+              <span class="pn-count">3 ejemplos</span>
+            </div>
+            <div class="pn-collection-list">
+              <div class="pn-collection-row">
+                <div class="pn-collection-person"><span class="pn-person-mark" aria-hidden="true">01</span><span><strong>Cliente demo 01</strong><small>Préstamo PN-0001 · Cuota 4</small></span></div>
+                <span class="pn-collection-amount"><strong>DOP 1,250</strong><small>9:00 a. m.</small></span>
+              </div>
+              <div class="pn-collection-row">
+                <div class="pn-collection-person"><span class="pn-person-mark" aria-hidden="true">02</span><span><strong>Cliente demo 02</strong><small>Préstamo PN-0002 · Cuota 7</small></span></div>
+                <span class="pn-collection-amount"><strong>DOP 2,000</strong><small>10:30 a. m.</small></span>
+              </div>
+              <div class="pn-collection-row">
+                <div class="pn-collection-person"><span class="pn-person-mark" aria-hidden="true">03</span><span><strong>Cliente demo 03</strong><small>Préstamo PN-0003 · Cuota 2</small></span></div>
+                <span class="pn-collection-amount"><strong>DOP 1,500</strong><small>11:00 a. m.</small></span>
+              </div>
+            </div>
+            <div class="pn-section-heading" style="margin: 10px 0 0;">
+              <span class="pn-count">La lista completa se verá según tus permisos.</span>
+              <a href="#todos-los-cobros">Ver agenda</a>
+            </div>
+          </section>
+
+          <section class="pn-section" aria-labelledby="pn-activity-heading">
+            <div class="pn-section-heading">
+              <h2 id="pn-activity-heading">Actividad reciente</h2>
+              <a href="#historial">Ver historial</a>
+            </div>
+            <div class="pn-table-wrap">
+              <table>
+                <thead><tr><th>Recibo</th><th>Cliente</th><th>Monto</th><th>Estado</th></tr></thead>
+                <tbody>
+                  <tr><td class="pn-receipt">REC-001</td><td>Cliente demo 04</td><td>DOP 1,250</td><td><span class="pn-status">Registrado</span></td></tr>
+                  <tr><td class="pn-receipt">REC-002</td><td>Cliente demo 05</td><td>DOP 2,000</td><td><span class="pn-status">Registrado</span></td></tr>
+                  <tr><td class="pn-receipt">REC-003</td><td>Cliente demo 06</td><td>DOP 900</td><td><span class="pn-status">Registrado</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <nav class="pn-mobile-nav" aria-label="Navegación móvil">
+        <a href="#resumen" aria-current="page"><i data-lucide="house" aria-hidden="true"></i>Inicio</a>
+        <a href="#clientes"><i data-lucide="users-round" aria-hidden="true"></i>Clientes</a>
+        <a href="#prestamos"><i data-lucide="hand-coins" aria-hidden="true"></i>Préstamos</a>
+        <a href="#cobros"><i data-lucide="calendar-check" aria-hidden="true"></i>Cobros</a>
+        <a href="#mas"><i data-lucide="menu" aria-hidden="true"></i>Más</a>
+      </nav>
+    </main>
+  </div>
+</div>

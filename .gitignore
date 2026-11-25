@@ -1,0 +1,34 @@
+# Entornos y secretos
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+mobile/.env
+
+# Dependencias y artefactos
+backend/vendor/
+backend/node_modules/
+backend/public/build/
+mobile/.dart_tool/
+mobile/build/
+mobile/.flutter-plugins
+mobile/.flutter-plugins-dependencies
+mobile/.packages
+web/node_modules/
+backend/.phpunit.result.cache
+backend/bootstrap/cache/*.php
+backend/database/*.sqlite
+backend/storage/framework/cache/data/**
+backend/storage/framework/sessions/*
+backend/storage/framework/testing/*
+backend/storage/framework/views/*
+!backend/storage/framework/views/.gitignore
+
+# Archivos generados localmente
+backend/storage/*.key
+backend/bootstrap/cache/*.php
+*.log
+Thumbs.db
+.DS_Store
